@@ -1,2 +1,1 @@
-# Clash_rules
-Customized Clash rules
+Customized rules
