@@ -1,20 +1,18 @@
 payload:
-  - IP-CIDR,80.239.145.79/32
-  - IP-CIDR,80.239.145.80/32
-  - IP-CIDR,80.239.145.81/32
-  - IP-CIDR,80.239.145.82/32
-  - IP-CIDR,80.239.145.83/32
-  - IP-CIDR,80.239.145.84/32
-  - IP-CIDR,80.239.145.87/32
-  - IP-CIDR,80.239.145.88/32
-  - IP-CIDR,80.239.145.89/32
-  - IP-CIDR,80.239.145.91/32
-  - IP-CIDR,80.239.145.92/32
-  - IP-CIDR,80.239.145.93/32
-  - IP-CIDR,80.239.145.94/32
-  - IP-CIDR,80.239.145.95/32
-  - IP-CIDR,80.239.145.96/32
-  - IP-CIDR,80.239.145.97/32
+  - IP-CIDR,80.239.145.79/32,no-resolve
+  - IP-CIDR,80.239.145.80/32,no-resolve
+  - IP-CIDR,80.239.145.81/32,no-resolve
+  - IP-CIDR,80.239.145.82/32,no-resolve
+  - IP-CIDR,80.239.145.83/32,no-resolve
+  - IP-CIDR,80.239.145.84/32,no-resolve
+  - IP-CIDR,80.239.145.87/32,no-resolve
+  - IP-CIDR,80.239.145.88/32,no-resolve
+  - IP-CIDR,80.239.145.89/32,no-resolve
+  - IP-CIDR,80.239.145.91/32,no-resolve
+  - IP-CIDR,80.239.145.92/32,no-resolve
+  - IP-CIDR,80.239.145.93/32,no-resolve
+  - IP-CIDR,80.239.145.94/32,no-resolve
+  - IP-CIDR,80.239.145.95/32,no-resolve
+  - IP-CIDR,80.239.145.96/32,no-resolve
+  - IP-CIDR,80.239.145.97/32,no-resolve
   
-  - DOMAIN-SUFFIX,exhentai.org
-  - DOMAIN-SUFFIX,e-hentai.org
