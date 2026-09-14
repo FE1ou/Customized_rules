@@ -1,3 +1,106 @@
 payload:
-  - DOMAIN-SUFFIX,stun.chat.bilibili.com
+
+  # ===========================================================================
+  # [0] 非 PCDN 的个人自定义项
+  # ===========================================================================
+ 
+  # 暴雪韩国 CDN 节点（与 PCDN 无关，避免下载被调度去韩国）
   - DOMAIN-SUFFIX,blizzard.gcdn.cloudn.co.kr
+ 
+ 
+  # ===========================================================================
+  # [A] STUN / 信令 / TRACKER —— 阻断"你被变成 PCDN 节点"
+  # ===========================================================================
+ 
+  # --- Bilibili 直播 -------------------------------------------------------
+  # 覆盖 stun. / stun-1. / stun-2. / turn*. / tracker*. / p2p-*.
+  # broadcastlv.chat.bilibili.com（弹幕 WSS）不含这些词根，不受影响
+  - DOMAIN-REGEX,^(stun|turn|tracker|p2p)[0-9a-z-]*\.chat\.bilibili\.com$
+  - DOMAIN-SUFFIX,stun.chat.bilibili.com
+ 
+  # --- 斗鱼 ----------------------------------------------------------------
+  - DOMAIN-REGEX,^(stun|turn|p2p|dyp2p|p2plive|p2pchunk)[0-9a-z-]*\.douyucdn\.cn$
+  - DOMAIN-SUFFIX,p2p.douyucdn.cn
+  - DOMAIN-SUFFIX,p2plog.douyucdn.cn
+  - DOMAIN-SUFFIX,p2perrorlog.douyucdn.cn
+ 
+  # --- 虎牙 ----------------------------------------------------------------
+  - DOMAIN-SUFFIX,p2p.huya.com
+  - DOMAIN-REGEX,^(stun|turn|p2p)[0-9a-z-]*\.huya\.com$
+  - DOMAIN-REGEX,pcdn[0-9a-z-]*\.msstatic\.com$
+  - DOMAIN,livewebbs2pcdn.msstatic.com
+  - DOMAIN,qn-cdnfile1pcdn.msstatic.com
+ 
+  # --- 快手 / 一甜 ---------------------------------------------------------
+  - DOMAIN-SUFFIX,pcdn.yximgs.com
+  - DOMAIN-REGEX,-p2p(-v[0-9]+)?\.pull\.yximgs\.com$
+  - DOMAIN-KEYWORD,-p2p.pull.yximgs.com
+  - DOMAIN-KEYWORD,-p2p-v2.pull.yximgs.com
+ 
+  # --- 腾讯系（QQ音乐 / 全民K歌 / 游戏下载 / 微视） -------------------------
+  # 注意：这里只匹配 p2p 前缀，不要加 stun|turn。
+  # stun.qq.com / turn.qq.com 是腾讯的通用 NAT 穿透服务器，QQ/微信音视频
+  # 通话依赖它，封了会让通话退化成服务器中转。
+  - DOMAIN-REGEX,^p2p[0-9a-z-]*\.qq\.com$
+  - DOMAIN-SUFFIX,p2p.qq.com
+  - DOMAIN-SUFFIX,p2ptun.qq.com
+  - DOMAIN,twns.p2ptun.qq.com
+  - DOMAIN,tp2p.kg.qq.com
+  - DOMAIN-SUFFIX,p2pupdate.gamedl.qq.com
+  - DOMAIN-SUFFIX,p2pupgrade.gamedl.qq.com
+ 
+  # --- 网易云音乐 ----------------------------------------------------------
+  - DOMAIN-SUFFIX,kuiniuca.com
+  - DOMAIN-SUFFIX,xinqiucc.com
+  - DOMAIN,sd-gl.xinqiucc.com
+  - DOMAIN,xyp-n.kuiniuca.com
+  - DOMAIN,sdk1xyajs.data.kuiniuca.com
+ 
+  # --- 酷狗 tracker --------------------------------------------------------
+  - DOMAIN,trackercdn.kugou.com
+  - DOMAIN,mobiletrackercdn.kugou.com
+ 
+ 
+  # ===========================================================================
+  # [B] PCDN / MCDN / HCDN 下行节点 —— 阻断"被调度去劣质节点拉流"
+  # ===========================================================================
+ 
+  # --- Bilibili ------------------------------------------------------------
+  - DOMAIN-SUFFIX,mcdn.bilivideo.cn
+  - DOMAIN-SUFFIX,mcdn.bilivideo.com
+  - DOMAIN-SUFFIX,mcdn.bilivideo.net
+  - DOMAIN-SUFFIX,szbdyd.com
+  - DOMAIN-SUFFIX,mountaintoys.cn
+  # 第三方回源：upos-sz-302ppio / 302kodo / 302-xxx 系列（字符类含 - ）
+  - DOMAIN-REGEX,^upos-sz-302[0-9a-z-]*\.bilivideo\.com$
+  - DOMAIN-REGEX,pcdn[0-9a-z-]*\.biliapi\.net$
+ 
+  # --- 腾讯视频 ------------------------------------------------------------
+  - DOMAIN-REGEX,^(h|p|m)cdn[0-9a-z-]*\.video\.qq\.com$
+  - DOMAIN,hcdn.video.qq.com
+  - DOMAIN,pcdn.video.qq.com
+ 
+  # --- 爱奇艺 --------------------------------------------------------------
+  - DOMAIN-SUFFIX,hcdn.qiyi.com
+  - DOMAIN-REGEX,hcdn[0-9a-z-]*\.(qiyi|iqiyi)\.com$
+  - DOMAIN,tpa-hcdn.iqiyi.com
+  - DOMAIN,cachecdn.v.iqiyi.com
+ 
+  # --- 第三方 PCDN 服务商（通吃，命中率最高，纯坏无误伤） ------------------
+  - DOMAIN-SUFFIX,p2cdn.com
+  - DOMAIN-SUFFIX,xycdn.com
+  - DOMAIN-SUFFIX,yfcdn.net
+  - DOMAIN-SUFFIX,yfp2p.net
+  - DOMAIN-SUFFIX,yfcloud.com
+  - DOMAIN-SUFFIX,bsccdn.net
+  - DOMAIN-SUFFIX,ppio.cloud
+  - DOMAIN-SUFFIX,onethingpcs.com
+  - DOMAIN-SUFFIX,pkoplink.com
+  - DOMAIN-SUFFIX,cdnnodedns.cn
+  - DOMAIN-SUFFIX,gjfzpt.cn
+  - DOMAIN-SUFFIX,bvmlt.top
+  - DOMAIN-SUFFIX,uhabo.com
+  - DOMAIN-SUFFIX,tianwenca.com
+  - DOMAIN-SUFFIX,nexusedgeio.com
+  - DOMAIN-SUFFIX,saxysec.com
+  - DOMAIN-SUFFIX,ietheivaicai.com
