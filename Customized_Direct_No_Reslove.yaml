@@ -2,3 +2,4 @@ payload:
   - DOMAIN-SUFFIX,tgpro.top
   - DOMAIN-SUFFIX,court.gov.cn
   - DOMAIN-SUFFIX,deepseek.com
+  - DOMAIN,cable.auth.com,DIRECT
